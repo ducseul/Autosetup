@@ -1,0 +1,1 @@
+Download vscode, opera, MS teams and Teamviewer from internet and save them with corresponding following names: code, opera, teams, teamviewer

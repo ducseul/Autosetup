@@ -1,0 +1,29 @@
+garuda-gnome-settings
+garuda-assistant
+garuda-boot-options garuda-gamer
+garuda-welcome
+garuda-setup-assistant
+garuda-network-assistant
+garuda-common-settings
+garuda-browser-settings
+gestures
+firedragon
+tela-circle-icon-theme-git
+garuda-settings-manager-git
+qomui-git
+celluloid
+kvantum-qt5
+beautyline
+lollypop
+modem-manager-gui
+kvantum-theme-sweet-git
+garuda-settings-manager-notifier-git
+flameshot
+meld
+librewolf-extension-bitwarden
+geary
+librewolf garuda-librewolf
+librewolf-extension-localcdn
+librewolf-extension-gnome-shell-integration
+nextcloud-client
+mpv
