@@ -6,9 +6,10 @@
 std::string PacmanCmd(const std::string& options,
                       const std::string& package_name) {
     std::string cmd("sudo pacman ");
-    if (!options.empty()) {
+    
+    if (!options.empty()) 
         cmd.append(options);
-    }
+
     cmd.append(" ");
     cmd.append(package_name);
     cmd.append(" --noconfirm");
@@ -21,7 +22,6 @@ bool exists(const std::string& package_name) {
 
     system(cmd.c_str());
 
-    
     std::ifstream ifs("tmp.txt");
     std::string line_1st;
     std::getline(ifs, line_1st);

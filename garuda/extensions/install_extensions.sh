@@ -14,8 +14,6 @@ cp -r extensions/trayIconsReloaded@selfmade.pl/               $EXTENSION_DIR
 
 busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")'
 
-sleep 7
-
 gnome-extensions enable clipboard-indicator@tudmotu.com
 gnome-extensions enable cpupower@mko-sl.de
 gnome-extensions enable dash-to-dock@micxgx.gmail.com

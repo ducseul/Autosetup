@@ -3,6 +3,7 @@ HOME_DIR ?= /home/thanh
 install_bamboo:
 	bash bamboo/install_bamboo.sh
 
+
 update_system:
 	sudo pacman -Syu
 
@@ -18,11 +19,11 @@ pac_remove:
 
 
 config_terminal:
-	bash config/terminal/config_terminal.sh ${HOME_DIR}
+	bash config/terminal/config_terminal.sh $(HOME_DIR)
 
 
 config_neovim:
-	bash config/neovim/config_nvim.sh ${HOME_DIR}
+	bash config/neovim/config_nvim.sh $(HOME_DIR)
 
 
 config_git:
@@ -46,11 +47,11 @@ fonts:
 
 
 extension:
-	bash extensions/install_extensions.sh ${HOME_DIR}
+	bash extensions/install_extensions.sh $(HOME_DIR)
 
 
 background:
-	bash set_background/set_background.sh ${HOME_DIR}
+	bash set_background/set_background.sh $(HOME_DIR)
 
 
 packages: pac_remove \
@@ -58,13 +59,13 @@ packages: pac_remove \
 	sudo npm install -g neovim
 
 
-admin_tasks: packages \
+admin_tasks: packages 		 \
 			 config_terminal \
-			 install_bamboo \
+			 install_bamboo  \
 			 fonts
 
 
-user_tasks:	config_git \
+user_tasks:	config_git 	  \
 			config_python \
 			config_neovim \
 			background
@@ -77,9 +78,9 @@ user_tasks:	config_git \
 	make extension
 
 
-garuda:
-	make config_mirrorlist 
-	make update_system
+garuda: config_mirrorlist \
+		update_system
+	
 	sudo pacman -S deepin-icon-theme --noconfirm
 	make config_gsettings
 	sudo make admin_tasks && make user_tasks
