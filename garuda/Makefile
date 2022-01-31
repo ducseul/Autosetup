@@ -70,6 +70,7 @@ admin_tasks: packages 		 \
 user_tasks:	config_python \
 			config_neovim \
 			config_vscode \
+			config_git 	  \
 			background
 			
 	# sudo sysctl net.ipv4.tcp_ecn=0
