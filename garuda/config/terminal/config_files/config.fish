@@ -146,13 +146,13 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
-alias cls="clear && paleofetch"
+alias cls="clear && cppneofetch"
 
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 
 ## Run paleofetch if session is interactive
-if status --is-interactive
-  paleofetch
-end
+# if status --is-interactive
+  cppneofetch
+# end

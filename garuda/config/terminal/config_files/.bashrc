@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-alias cls='clear && paleofetch'
+alias cls='clear && cppneofetch'
 PS1='\e[1;92m\n ╭─\u@\h \e[1;97min \e[1;94m\w\n\e[1;92m ╰─λ \e[1;97m'
 
 # >>> conda initialize >>>
@@ -22,6 +22,6 @@ else
     fi
 fi
 unset __conda_setup
-paleofetch
+cppneofetch
 # <<< conda initialize <<<
 

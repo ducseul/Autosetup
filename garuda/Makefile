@@ -9,13 +9,11 @@ update_system:
 
 
 pac_install:
-	g++ install_packages/install_packages.cpp -o install_packages.out
-	./install_packages.out
+	bash install_packages/install_packages.sh
 
 
 pac_remove:
-	g++ remove_packages/remove_packages.cpp -o remove_packages.out
-	./remove_packages.out
+	bash remove_packages/remove_packages.sh
 
 
 config_terminal:
@@ -24,6 +22,10 @@ config_terminal:
 
 config_neovim:
 	bash config/neovim/config_nvim.sh $(HOME_DIR)
+
+
+config_vscode:
+	bash config/vscode/config_extension.sh $(HOME_DIR)
 
 
 config_git:
@@ -65,9 +67,9 @@ admin_tasks: packages 		 \
 			 fonts
 
 
-user_tasks:	config_git 	  \
-			config_python \
+user_tasks:	config_python \
 			config_neovim \
+			config_vscode \
 			background
 			
 	# sudo sysctl net.ipv4.tcp_ecn=0
@@ -79,8 +81,9 @@ user_tasks:	config_git 	  \
 
 
 garuda: config_mirrorlist \
-		update_system
-	
-	sudo pacman -S deepin-icon-theme --noconfirm
+
+	sudo pacman -S deepin-icon-theme jack2 --noconfirm
 	make config_gsettings
-	sudo make admin_tasks && make user_tasks
+	make update_system
+	sudo make admin_tasks
+	make user_tasks
