@@ -7,3 +7,7 @@ cp -rf config/neovim/nvim/ ${HOME_DIR}/.config/
 
 pip install jedi
 pip install pynvim
+
+nvim -c 'PlugInstall' 										\
+	 -c 'CocInstall coc-clang coc-sh coc-python coc-java' 	\
+	 -c 'qa'
