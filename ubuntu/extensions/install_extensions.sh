@@ -10,6 +10,10 @@ cp -r extensions/netspeedsimplified@prateekmedia.extension/   $EXTENSION_DIR
 cp -r extensions/sound-output-device-chooser@kgshank.net/     $EXTENSION_DIR
 cp -r extensions/system-monitor@paradoxxx.zero.gmail.com/     $EXTENSION_DIR
 
+busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")'
+
+sleep 5
+
 gnome-extensions enable clipboard-indicator@tudmotu.com
 gnome-extensions enable cpupower@mko-sl.de
 gnome-extensions enable dash-to-dock@micxgx.gmail.com
@@ -57,7 +61,3 @@ gnome-extensions enable system-monitor@paradoxxx.zero.gmail.com
 # git clone https://github.com/kgshank/gse-sound-output-device-chooser.git github/gse-sound-output-device-chooser
 # cp -rf github/gse-sound-output-device-chooser/sound-output-device-chooser@kgshank.net $EXTENSION_DIR
 # gnome-extensions enable sound-output-device-chooser@kgshank.net
-
-
-busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")'
-
