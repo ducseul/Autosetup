@@ -11,7 +11,7 @@
   </enum>
   <schema id="org.gnome.shell.extensions.system-monitor" path="/org/gnome/shell/extensions/system-monitor/">
     <key name="icon-display" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Display system monitor icon</summary>
       <description>Set to true to display system monitor icon in status bar.(NOTICE: The icon will be shown when none of the others is shown.)</description>
     </key>
@@ -21,7 +21,7 @@
       <description>Set to false to remove memory display in status bar</description>
     </key>
     <key name="memory-refresh-time" type="i">
-      <default>5000</default>
+      <default>500</default>
       <summary>Memory refresh time</summary>
       <description>Time in ms between 2 refresh of memory</description>
     </key>
@@ -41,7 +41,7 @@
       <description>Set to true to show memory in pop-up menu</description>
     </key>
     <key name="memory-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="swap-display" type="b">
@@ -50,7 +50,7 @@
       <description>Set to false to remove swap display in status bar</description>
     </key>
     <key name="swap-refresh-time" type="i">
-      <default>5000</default>
+      <default>500</default>
       <summary>Swap refresh time</summary>
       <description>Time in ms between 2 refresh of swap</description>
     </key>
@@ -70,7 +70,7 @@
       <description>Set to true to show swap in pop-up menu</description>
     </key>
     <key name="swap-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="cpu-display" type="b">

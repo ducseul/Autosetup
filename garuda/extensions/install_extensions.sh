@@ -50,6 +50,11 @@ done
 # @=============================================================================@
 # @https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet.git       @
 # @File: schemas                                                                @
+# @icon-display: false                                                          @
+# @memory-refresh-time: 500                                                     @
+# @memory-style: digit                                                          @
+# @swap-refresh-time: 500                                                       @
+# @swap-style: digit                                                            @
 # @cpu-refresh-time: 500                                                        @
 # @cpu-style: digit                                                             @
 # @gpu-refresh-time: 500                                                        @
