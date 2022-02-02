@@ -44,47 +44,62 @@ config_mirrorlist:
 	bash config/mirrorlist/config_mirrorlist.sh
 
 
+config_desktop:
+	bash config/desktop/config_desktop.sh
+
+
 fonts:
 	bash install_fonts/install_fonts.sh
 
 
+restart_gshell:
+	xdotool key "Alt+F2+r" && sleep 1 && xdotool key "Enter"
+	sleep 5
+
+
 extension:
 	bash extensions/install_extensions.sh $(HOME_DIR)
+	make restart_gshell
+	bash extensions/enable_extensions.sh
+
 
 
 background:
 	bash set_background/set_background.sh $(HOME_DIR)
 
 
-packages: pac_remove \
-		  pac_install
+packages: 
+	make pac_remove
+	make update_system
+	make pac_install
 	sudo npm install -g neovim
 
 
-admin_tasks: packages 		 \
-			 config_terminal \
-			 install_bamboo  \
-			 fonts
+admin_tasks: 
+	make packages
+	make config_terminal
+	make install_bamboo
+	make fonts
 
 
-user_tasks:	config_python \
-			config_neovim \
-			config_vscode \
-			config_git 	  \
-			background
-			
+user_tasks:
+	make config_python
+	make config_neovim
+	make config_vscode
+	make config_git
+	make background
 	# sudo sysctl net.ipv4.tcp_ecn=0
 	timedatectl set-local-rtc 1 --adjust-system-clock
-	rm -f install_packages.out
-	rm -f remove_packages.out
 	rm -f tmp.txt
+
+
+garuda: 
 	make extension
-
-
-garuda: config_mirrorlist \
-
+	make config_mirrorlist
 	sudo pacman -S deepin-icon-theme jack2 --noconfirm
 	make config_gsettings
-	make update_system
 	sudo make admin_tasks
 	make user_tasks
+	make config_desktop
+	make restart_gshell
+	

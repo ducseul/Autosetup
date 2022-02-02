@@ -57,7 +57,7 @@
     </key>
 
     <key name="hide-menu-icons" type="b">
-        <default>false</default>
+        <default>true</default>
         <summary>Preference indicating whether the icons are hidden in the drop-down menu (but are visible in the expanded list).</summary>
         <description></description>
     </key>

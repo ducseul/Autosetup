@@ -35,3 +35,6 @@ remove-no-reboot:
 	rm -rf ${EXT_HOME}
 
 reinstall: remove-no-reboot install
+
+build:
+	glib-compile-schemas schemas/

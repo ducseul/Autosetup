@@ -36,3 +36,7 @@ steam
 rust
 rust-src
 rust-analyzer
+xdotool
+libgtop
+networkmanager
+clutter

@@ -154,10 +154,10 @@ var CPUPowerPreferences = class CPUPowerPreferences {
 
     updateSettings(done) {
         let value = this.settings.get_boolean("show-freq-in-taskbar");
-        this.ShowCurrentFrequencySwitch.set_active(true);
+        this.ShowCurrentFrequencySwitch.set_active(value);
 
         value = this.settings.get_boolean("taskbar-freq-unit-ghz");
-        this.UseGHzInsteadOfMHzSwitch.set_active(true);
+        this.UseGHzInsteadOfMHzSwitch.set_active(value);
 
         value = this.settings.get_boolean("show-icon-in-taskbar");
         this.ShowIconSwitch.set_active(value);

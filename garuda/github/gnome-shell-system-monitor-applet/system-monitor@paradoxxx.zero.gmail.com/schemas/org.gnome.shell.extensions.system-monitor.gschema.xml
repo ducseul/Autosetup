@@ -79,7 +79,7 @@
       <description>Set to false to remove cpu display in status bar</description>
     </key>
     <key name="cpu-refresh-time" type="i">
-      <default>1500</default>
+      <default>500</default>
       <summary>Cpu refresh time</summary>
       <description>Time in ms between 2 refresh of cpu</description>
     </key>
@@ -99,7 +99,7 @@
       <description>Set to true to show cpu in pop-up menu</description>
     </key>
     <key name="cpu-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="cpu-individual-cores" type="b">
@@ -113,7 +113,7 @@
       <description>Set to false to remove GPU display in status bar</description>
     </key>
     <key name="gpu-refresh-time" type="i">
-      <default>5000</default>
+      <default>500</default>
       <summary>Memory refresh time</summary>
       <description>Time in ms between 2 refreshes of GPU usage</description>
     </key>
@@ -133,7 +133,7 @@
       <description>Set to true to show GPU in pop-up menu</description>
     </key>
     <key name="gpu-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="freq-display" type="b">
@@ -142,7 +142,7 @@
       <description>Set to false to remove freq display in status bar</description>
     </key>
     <key name="freq-refresh-time" type="i">
-      <default>1500</default>
+      <default>500</default>
       <summary>Cpu frequency refresh time</summary>
       <description>Time in ms between 2 refresh of cpu</description>
     </key>
@@ -162,16 +162,16 @@
       <description>Set to true to show freq in pop-up menu</description>
     </key>
     <key name="freq-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="net-display" type="b">
-      <default>true</default>
+      <default>false</default>
       <summary>Display net</summary>
       <description>Set to false to remove net display in status bar</description>
     </key>
     <key name="net-refresh-time" type="i">
-      <default>1000</default>
+      <default>500</default>
       <summary>Net refresh time</summary>
       <description>Time in ms between 2 refresh of net</description>
     </key>
@@ -191,7 +191,7 @@
       <description>Set to true to show net in pop-up menu</description>
     </key>
     <key name="net-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="net-speed-in-bits" type="b">
@@ -204,7 +204,7 @@
       <description>Set to false to remove disk display in status bar</description>
     </key>
     <key name="disk-refresh-time" type="i">
-      <default>2000</default>
+      <default>500</default>
       <summary>Disk IO refresh time</summary>
       <description>Time in ms between 2 refresh of Disk IO</description>
     </key>
@@ -224,7 +224,7 @@
       <description>Set to true to show disk in pop-up menu</description>
     </key>
     <key name="disk-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="disk-usage-style" enum="org.gnome.shell.extensions.system-monitor.disk-usage-style">
@@ -232,12 +232,12 @@
       <summary>Choose the disk usage display style.</summary>
     </key>
     <key name="thermal-display" type="b">
-      <default>false</default>
+      <default>true</default>
       <summary>Display thermal</summary>
       <description>Set to false to remove thermal display in status bar</description>
     </key>
     <key name="thermal-refresh-time" type="i">
-      <default>5000</default>
+      <default>500</default>
       <summary>thermal refresh time</summary>
       <description>Time in ms between 2 refresh of thermal</description>
     </key>
@@ -257,11 +257,11 @@
       <description>Set to true to show thermal in pop-up menu</description>
     </key>
     <key name="thermal-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="thermal-sensor-file" type="s">
-      <default>'/sys/devices/virtual/thermal/thermal_zone0/temp'</default>
+      <default>'/sys/class/hwmon/hwmon4/temp1_input'</default>
       <summary>Sensor File</summary>
       <description>Location of the sensor file for cpu temp</description>
     </key>
@@ -276,7 +276,7 @@
       <description>Set to false to remove fan display in status bar</description>
     </key>
     <key name="fan-refresh-time" type="i">
-      <default>5000</default>
+      <default>500</default>
       <summary>fan refresh time</summary>
       <description>Time in ms between 2 refresh of fan</description>
     </key>
@@ -296,7 +296,7 @@
       <description>Set to true to show fan in pop-up menu</description>
     </key>
     <key name="fan-style" enum="org.gnome.shell.extensions.system-monitor.display-style">
-      <default>'graph'</default>
+      <default>'digit'</default>
       <summary>Choose the display style.</summary>
     </key>
     <key name="fan-sensor-file" type="s">
@@ -423,7 +423,7 @@
       <description>Set to false to remove battery display in status bar</description>
     </key>
 	<key name="battery-refresh-time" type="i">
-      <default>5000</default>
+      <default>500</default>
       <summary>thermal refresh time</summary>
       <description>Time in ms between 2 refresh of thermal</description>
     </key>

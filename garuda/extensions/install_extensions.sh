@@ -1,70 +1,122 @@
 HOME_DIR=$1
 EXTENSION_DIR="$HOME_DIR/.local/share/gnome-shell/extensions"
+EXTENSIONS=$(cat extensions/extensions.txt)
 
-rm -rf ${EXTENSION_DIR}
 mkdir -p ${EXTENSION_DIR}
 
-cp -r extensions/clipboard-indicator@tudmotu.com/             $EXTENSION_DIR
-cp -r extensions/cpupower@mko-sl.de/                          $EXTENSION_DIR
-cp -r extensions/dash-to-dock@micxgx.gmail.com/               $EXTENSION_DIR
-cp -r extensions/netspeedsimplified@prateekmedia.extension/   $EXTENSION_DIR
-cp -r extensions/sound-output-device-chooser@kgshank.net/     $EXTENSION_DIR
-cp -r extensions/system-monitor@paradoxxx.zero.gmail.com/     $EXTENSION_DIR
-cp -r extensions/trayIconsReloaded@selfmade.pl/               $EXTENSION_DIR
+for extension in ${EXTENSIONS[*]}; do
+    # echo "extensions/"$extension"/"
+    rm -rf ${EXTENSION_DIR}/"${extension}"
+    cp -r extensions/"${extension}"/ $EXTENSION_DIR
+done
 
-busctl --user call org.gnome.Shell /org/gnome/Shell org.gnome.Shell Eval s 'Meta.restart("Restarting…")'
+# @============================ Install from source ============================@
 
-gnome-extensions enable clipboard-indicator@tudmotu.com
-gnome-extensions enable cpupower@mko-sl.de
-gnome-extensions enable dash-to-dock@micxgx.gmail.com
-gnome-extensions enable netspeedsimplified@prateekmedia.extension
-gnome-extensions enable sound-output-device-chooser@kgshank.net
-gnome-extensions enable system-monitor@paradoxxx.zero.gmail.com
-gnome-extensions enable trayIconsReloaded@selfmade.pl
-
-# ===================== Install from source =====================
-
-# Dash-To-Dock
-# rm -rf github/dash-to-dock
-# git clone https://github.com/micheleg/dash-to-dock.git github/dash-to-dock
+# *Dash-To-Dock
 # make --directory github/dash-to-dock/ clean
-# make --directory github/dash-to-dock/ 
+# make --directory github/dash-to-dock/
 # make --directory github/dash-to-dock/ install
+# @=============================================================================@
+# @https://github.com/micheleg/dash-to-dock.git                                 @
+# @File: schemas                                                                @
+# @autohide: false                                                              @
+# @intellihide: false                                                           @
+# @autohide-in-fullscreen: false                                                @
+# @dock-fixed: true                                                             @
+# @apply-custom-theme: true                                                     @
+# @show-trash: false                                                            @
+# @show-mounts: false                                                           @
+# @click-action: minimize-or-overview                                           @
+# @scroll-action: cycle-windows                                                 @
+# @=============================================================================@
 
 
-# CPU Power Manager
-# rm -rf github/cpupower
-# git clone https://github.com/martin31821/cpupower.git github/cpupower
-# make --directory github/cpupower/ install PREFIX="$HOME/.local"
+# *CPU Power Manager
+# make --directory github/cpupower/ clean
+# make --directory github/cpupower/ build
+# make --directory github/cpupower/ install PREFIX="${HOME_DIR}/.local"
+# @=============================================================================@
+# @https://github.com/martin31821/cpupower.git github/cpupower                  @
+# @File: schemas                                                                @
+# @profiles: thêm (10,50,true,"Default", "")                                    @
+# @show-freq-in-taskbar: true                                                   @
+# @=============================================================================@
 
 
-# system-monitor
-# rm -rf github/gnome-shell-system-monitor-applet
-# git clone https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet.git github/gnome-shell-system-monitor-applet
-# sudo pacman -S libgtop networkmanager gnome-system-monitor clutter
-# make --directory github/gnome-shell-system-monitor-applet clean
+# *system-monitor
 # make --directory github/gnome-shell-system-monitor-applet install
+# make --directory github/gnome-shell-system-monitor-applet clean
+# make --directory github/gnome-shell-system-monitor-applet build
+# @=============================================================================@
+# @https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet.git       @
+# @File: schemas                                                                @
+# @cpu-refresh-time: 500                                                        @
+# @cpu-style: digit                                                             @
+# @gpu-refresh-time: 500                                                        @
+# @gpu-style: digit                                                             @
+# @freq-refresh-time: 500                                                       @
+# @freq-style: digit                                                            @
+# @net-display: false                                                           @
+# @net-refresh-time: 500                                                        @
+# @net-style: digit                                                             @
+# @disk-refresh-time: 500                                                       @
+# @disk-style: digit                                                            @
+# @thermal-display: true                                                        @
+# @thermal-refresh-time: 500                                                    @
+# @thermal-style: digit                                                         @
+# @thermal-sensor-file: /sys/class/hwmon/hwmon4/temp1_input                     @
+# @fan-refresh-time: 500                                                        @
+# @fan-style: digit                                                             @
+# @battery-refresh-time: 500                                                    @
+# @=============================================================================@
 
 
-# clipboard-indicator
-# git clone https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git "$EXTENSION_DIR"/clipboard-indicator@tudmotu.com
-# gnome-extensions enable clipboard-indicator@tudmotu.com
+# *clipboard-indicator
+# make --directory github/gnome-shell-extension-clipboard-indicator install
+# @=============================================================================@
+# @https://github.com/Tudmotu/gnome-shell-extension-clipboard-indicator.git     @
+# @File: schemas                                                                @
+# @refresh-interval: 500                                                        @
+# @history-size: 100                                                            @
+# @preview-size: 50                                                             @
+# @cache-size: 10240                                                            @
+# @clear-history: ![CDATA[['<Super>c']]]                                        @
+# @toggle-menu: ![CDATA[['<Super>v']]]                                          @
+# @=============================================================================@
 
 
-# Net speed Simplified 
-# rm -rf github/netspeedsimplified
-# git clone "https://github.com/prateekmedia/netspeedsimplified.git" github/netspeedsimplified
+
+# *Net speed Simplified
+# make --directory github/netspeedsimplified build
 # make --directory github/netspeedsimplified install
+# @=============================================================================@
+# @https://github.com/prateekmedia/netspeedsimplified.git                       @
+# @Files: schemas                                                               @
+# @mode: 3                                                                      @
+# @refreshtime: 1.0                                                             @
+# @togglebool: false                                                            @
+# @minwidth: 5.0                                                                @
+# @=============================================================================@
 
 
-# Sound Input & Output Device Chooser
-# rm -rf github/gse-sound-output-device-chooser
-# git clone https://github.com/kgshank/gse-sound-output-device-chooser.git github/gse-sound-output-device-chooser
-# cp -rf github/gse-sound-output-device-chooser/sound-output-device-chooser@kgshank.net $EXTENSION_DIR
-# gnome-extensions enable sound-output-device-chooser@kgshank.net
+
+# *Sound Input & Output Device Chooser
+# make --directory github/gse-sound-output-device-chooser build
+# make --directory github/gse-sound-output-device-chooser install
+# @=============================================================================@
+# @https://github.com/kgshank/gse-sound-output-device-chooser.git               @
+# @Files: schema                                                                @
+# @hide-menu-icons: true                                                        @
+# @=============================================================================@
 
 
-# Tray Icons: Reloaded
-# git clone https://github.com/MartinPL/Tray-Icons-Reloaded.git "$EXTENSION_DIR"/trayIconsReloaded@selfmade.pl/
-# gnome-extensions enable trayIconsReloaded@selfmade.pl
 
+# *Tray Icons: Reloaded
+# make --directory github/Tray-Icons-Reloaded clean
+# make --directory github/Tray-Icons-Reloaded build
+# make --directory github/Tray-Icons-Reloaded install
+# @=============================================================================@
+# @https://github.com/MartinPL/Tray-Icons-Reloaded.git                          @
+# @Files: schema                                                                @
+# @tray-position: left                                                          @
+# @=============================================================================@

@@ -122,7 +122,7 @@
       <description></description>
     </key>
     <key type="b" name="autohide">
-      <default>true</default>
+      <default>false</default>
       <summary>Dock shown on mouse over</summary>
       <description>Enable or disable autohide mode</description>
     </key>
@@ -142,7 +142,7 @@
       <description>Enable autohide in fullscreen mode.</description>
     </key>
     <key type="b" name="dock-fixed">
-      <default>false</default>
+      <default>true</default>
       <summary>Dock always visible</summary>
       <description>Dock is always visible</description>
     </key>

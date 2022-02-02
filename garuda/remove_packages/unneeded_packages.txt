@@ -27,3 +27,4 @@ librewolf-extension-localcdn
 librewolf-extension-gnome-shell-integration
 nextcloud-client
 mpv
+mujs
