@@ -1,6 +1,6 @@
 EXT_HOME=~/.local/share/gnome-shell/extensions/netspeedsimplified@prateekmedia.extension
 
-all: install
+all: build install
 
 install: convenience.js extension.js metadata.json prefs.js stylesheet.css schemas/gschemas.compiled
 	#Remove old files(if any)
@@ -35,3 +35,6 @@ remove-no-reboot:
 	rm -rf ${EXT_HOME}
 
 reinstall: remove-no-reboot install
+
+build:
+	glib-compile-schemas schemas/

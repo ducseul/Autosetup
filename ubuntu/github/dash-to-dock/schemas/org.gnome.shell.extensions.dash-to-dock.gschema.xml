@@ -111,7 +111,7 @@
       <description>Sets the opacity of the dash background  when in autohide mode.</description>
     </key>
     <key type="b" name="intellihide">
-      <default>true</default>
+      <default>false</default>
       <summary>Dock dodges windows</summary>
       <description>Enable or disable intellihide mode</description>
     </key>
@@ -121,7 +121,7 @@
       <description></description>
     </key>
     <key type="b" name="autohide">
-      <default>true</default>
+      <default>false</default>
       <summary>Dock shown on mouse over</summary>
       <description>Enable or disable autohide mode</description>
     </key>
@@ -141,7 +141,7 @@
       <description>Enable autohide in fullscreen mode.</description>
     </key>
     <key type="b" name="dock-fixed">
-      <default>false</default>
+      <default>true</default>
       <summary>Dock always visible</summary>
       <description>Dock is always visible</description>
     </key>
@@ -161,7 +161,7 @@
       <description>Keep the icon size fived by scrolling the dock.</description>
     </key>
     <key type="b" name="apply-custom-theme">
-      <default>false</default>
+      <default>true</default>
       <summary>Apply custom theme</summary>
       <description>Apply customization to the dash appearance</description>
     </key>
@@ -216,12 +216,12 @@
       <description>Show or hide favorite applications icons in the dash</description>
     </key>
     <key type="b" name="show-trash">
-      <default>true</default>
+      <default>false</default>
       <summary>Show trash can</summary>
       <description>Show or hide the trash can icon in the dash</description>
     </key>
     <key type="b" name="show-mounts">
-      <default>true</default>
+      <default>false</default>
       <summary>Show mounted volumes and devices</summary>
       <description>Show or hide mounted volume and device icons in the dash</description>
     </key>
