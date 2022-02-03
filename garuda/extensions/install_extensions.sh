@@ -16,8 +16,8 @@ done
 # make --directory github/dash-to-dock/ clean
 # make --directory github/dash-to-dock/
 # make --directory github/dash-to-dock/ install
-# @=============================================================================@
 # make --directory github/dash-to-dock/ clean
+# @=============================================================================@
 # @https://github.com/micheleg/dash-to-dock.git                                 @
 # @File: schemas                                                                @
 # @autohide: false                                                              @
