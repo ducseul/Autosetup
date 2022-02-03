@@ -141,7 +141,7 @@
       <description>Enable autohide in fullscreen mode.</description>
     </key>
     <key type="b" name="dock-fixed">
-      <default>false</default>
+      <default>true</default>
       <summary>Dock always visible</summary>
       <description>Dock is always visible</description>
     </key>

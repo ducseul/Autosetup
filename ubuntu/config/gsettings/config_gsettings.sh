@@ -105,3 +105,12 @@ gsettings set org.gnome.mutter dynamic-workspaces false
 gsettings set org.gnome.desktop.wm.preferences num-workspaces 1
 
 
+# Setup terminal windows size
+TERM_PROFILE_ID="a39cb463-dfb9-44fd-a9c7-e98c1b4aa552"
+
+gsettings set org.gnome.Terminal.ProfilesList list "['${TERM_PROFILE_ID}']"
+gsettings set org.gnome.Terminal.ProfilesList default "'${TERM_PROFILE_ID}'"
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${TERM_PROFILE_ID}/ visible-name 'Thanh'
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${TERM_PROFILE_ID}/ default-size-columns 100
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${TERM_PROFILE_ID}/ default-size-rows 30
+

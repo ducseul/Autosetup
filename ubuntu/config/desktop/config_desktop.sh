@@ -15,97 +15,82 @@ gsettings set org.gnome.shell favorite-apps "$LAYOUT"
 
 # todo: Setup app-folders
 # IDs schemas
-ID_TERMINAL='00617217-1326-43be-8159-3280a17dca85'
-ID_TXT_EDITORS='06a53e1f-306f-4d8f-8fad-2932576e8d39'
-ID_TOOLS='4742d7e6-8f3c-4b59-9dd1-11197b517733'
-ID_QT='96149085-b165-4d86-a91f-a1730a004bca'
-ID_GNOME_APPS='c535cade-b5a7-41f7-954f-036d2215be6d'
-ID_OFFICES='630ec0e5-3434-4cb8-8c4b-d776289f065a'
-ID_NETWORK='5712de45-ee0b-48e9-8204-cd29f15f692f'
+ID_TERMINAL='6252eb83-6072-48fb-958a-ad576c3d529d'
+ID_TXT_EDITORS='b3e75445-a8e1-40a2-8ae8-14faaa1acf37'
+ID_TOOLS='028dd9e0-9bcf-46c6-9b80-0ec50387158c'
+ID_QT='9558d520-9964-4c7c-af69-b972c567a3c5'
+ID_GNOME_APPS='9a9ac96c-08a2-434b-8b0f-96758be89bb6'
+ID_OFFICES='04cb9553-2b2c-4ad7-bbcf-39b84f340239'
 
-IDs=(${ID_TERMINAL} ${ID_TXT_EDITORS} ${ID_TOOLS} ${ID_QT} ${ID_GNOME_APPS} ${ID_OFFICES} ${ID_NETWORK})
+IDs=(${ID_TERMINAL} ${ID_TXT_EDITORS} ${ID_TOOLS} ${ID_QT} ${ID_GNOME_APPS} ${ID_OFFICES})
 
 
 # apps in app-folders
 APPS_TERMINAL="[\
-'Alacritty.desktop', \
-'htop.desktop', \
-'fish.desktop', \
-'org.gnome.Terminal.desktop'\
+'org.gnome.Terminal.desktop', \
+'debian-uxterm.desktop', \
+'debian-xterm.desktop', \
+'htop.desktop'\
 ]"
 
 APPS_TXT_EDITORS="[\
+'code.desktop', \
+'vim.desktop', \
 'nvim.desktop', \
 'nvim-qt.desktop', \
-'visual-studio-code.desktop', \
 'org.gnome.gedit.desktop'\
 ]"
 
 APPS_TOOLS="[\
-'garuda-system-maintenance-settings.desktop', \
-'garuda-settings-manager.desktop', \
-'jconsole-java-openjdk.desktop', \
-'jshell-java-openjdk.desktop', \
-'ar.com.softwareperonista.Pace.desktop', \
-'reflector-simple.desktop', \
-'stoken-gui.desktop', \
-'stoken-gui-small.desktop'\
+'gnome-language-selector.desktop', \
+'yelp.desktop', 'org.gnome.Characters.desktop', \
+'org.gnome.Logs.desktop', \
+'snap-store_ubuntu-software.desktop', \
+'gnome-session-properties.desktop'\
 ]"
 
 APPS_QT="[\
-'linguist.desktop', \
-'assistant.desktop', \
-'qdbusviewer.desktop', \
-'designer.desktop', \
-'qv4l2.desktop', \
-'qvidcap.desktop'\
+'org.qt-project.qtcreator.desktop', \
+'assistant-qt5.desktop', \
+'linguist-qt5.desktop', \
+'designer-qt5.desktop'\
 ]"
 
 APPS_GNOME_APPS="[\
-'org.manjaro.pamac.manager.desktop', \
-'org.gnome.eog.desktop', \
+'org.gnome.FileRoller.desktop', \
 'org.gnome.Calculator.desktop', \
 'org.gnome.Evince.desktop', \
-'org.gnome.FileRoller.desktop', \
-'org.gnome.Firmware.desktop', \
-'org.gnome.Screenshot.desktop', \
+'org.gnome.Nautilus.desktop', \
+'org.gnome.eog.desktop', \
 'gnome-control-center.desktop', \
-'gnome-system-monitor.desktop'\
+'gnome-system-monitor.desktop', \
+'org.gnome.Screenshot.desktop'\
 ]"
 
 APPS_OFFICES="[\
-'libreoffice-writer.desktop', \
 'libreoffice-calc.desktop', \
-'libreoffice-impress.desktop', \
-'libreoffice-draw.desktop', \
+'libreoffice-writer.desktop', \
 'libreoffice-base.desktop', \
-'libreoffice-math.desktop', \
-'libreoffice-startcenter.desktop'\
+'libreoffice-draw.desktop', \
+'libreoffice-impress.desktop'\
 ]"
 
-APPS_NETWORK="[\
-'bssh.desktop', \
-'nm-connection-editor.desktop', \
-'bvnc.desktop', \
-'avahi-discover.desktop'\
-]"
-
-APPs=("$APPS_TERMINAL" "$APPS_TXT_EDITORS" "$APPS_TOOLS" "$APPS_QT" "$APPS_GNOME_APPS" "$APPS_OFFICES" "$APPS_NETWORK")
+APPs=("$APPS_TERMINAL" "$APPS_TXT_EDITORS" "$APPS_TOOLS" "$APPS_QT" "$APPS_GNOME_APPS" "$APPS_OFFICES")
 
 
 # Names of app-folders
-NAMEs=("Terminal" "Text Editors" "Tools" "Qt" "Gnome Apps" "Offices" "Network")
+NAMEs=("Terminal" "Text Editors" "Tools" "Qt" "Gnome Apps" "Offices")
 
 # todo: set value for "org.gnome.desktop.app-folders.folder-children"
 VALUE="'${IDs[0]}'"
-for ID in ${IDs[*]:1:7}; do
+for ID in ${IDs[*]:1:6}; do
     VALUE="$VALUE, '${ID}'"
     gsettings set org.gnome.desktop.app-folders folder-children "[$VALUE]"
 done
 
 # todo: clutter apps in to folders
 idx=0
-while ((idx < 7)); do
+while ((idx < 6)); do
     gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/${IDs[$idx]}/ apps "${APPs[$idx]}"
     gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/${IDs[$idx]}/ apps "${APPs[$idx]}"
     gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/${IDs[$idx]}/ name "'${NAMEs[$idx]}'"
@@ -114,29 +99,31 @@ done
 
 
 # todo: setup app-picker-layout
-LAYOUT="[\
-{\
-'06a53e1f-306f-4d8f-8fad-2932576e8d39': <{'position': <0>}>, \
-'96149085-b165-4d86-a91f-a1730a004bca': <{'position': <1>}>, \
-'630ec0e5-3434-4cb8-8c4b-d776289f065a': <{'position': <2>}>, 
-'gparted.desktop': <{'position': <3>}>, \
-'org.gnome.DiskUtility.desktop': <{'position': <4>}>, \
-'cmake-gui.desktop': <{'position': <5>}>, \
-'org.gnome.Extensions.desktop': <{'position': <6>}>, \
-'ca.desrt.dconf-editor.desktop': <{'position': <7>}>, \
-'wihotspot.desktop': <{'position': <8>}>, \
-'vlc.desktop': <{'position': <9>}>, \
-'org.gnome.tweaks.desktop': <{'position': <10>}>\
-}, \
-{\
-'c535cade-b5a7-41f7-954f-036d2215be6d': <{'position': <0>}>, \
-'5712de45-ee0b-48e9-8204-cd29f15f692f': <{'position': <1>}>, \
-'00617217-1326-43be-8159-3280a17dca85': <{'position': <2>}>, \
-'4742d7e6-8f3c-4b59-9dd1-11197b517733': <{'position': <3>}>\
-}\
-]"
-
-gsettings set org.gnome.shell app-picker-layout "$LAYOUT"
+# LAYOUT="[\
+# {\
+# 'b3e75445-a8e1-40a2-8ae8-14faaa1acf37': <{'position': <0>}>, \
+# '9558d520-9964-4c7c-af69-b972c567a3c5': <{'position': <1>}>, \
+# '04cb9553-2b2c-4ad7-bbcf-39b84f340239': <{'position': <2>}>, 
+# 'gparted.desktop': <{'position': <3>}>, \
+# 'org.gnome.DiskUtility.desktop': <{'position': <4>}>, \
+# 'cmake-gui.desktop': <{'position': <5>}>, \
+# 'org.gnome.Extensions.desktop': <{'position': <6>}>, \
+# 'ca.desrt.dconf-editor.desktop': <{'position': <7>}>, \
+# 'wihotspot.desktop': <{'position': <8>}>, \
+# 'vlc.desktop': <{'position': <9>}>, \
+# 'org.gnome.tweaks.desktop': <{'position': <10>}>\
+# }, \
+# {\
+# '9a9ac96c-08a2-434b-8b0f-96758be89bb6': <{'position': <0>}>, \
+# '5712de45-ee0b-48e9-8204-cd29f15f692f': <{'position': <1>}>, \
+# '6252eb83-6072-48fb-958a-ad576c3d529d': <{'position': <2>}>, \
+# '028dd9e0-9bcf-46c6-9b80-0ec50387158c': <{'position': <3>}>\
+# }\
+# ]"
+# gsettings set org.gnome.shell app-picker-layout "$LAYOUT"
 
 # todo: set input source
 gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo::Us')]"
+
+# todo: hide desktop icon
+gsettings set org.gnome.shell disabled-extensions "['desktop-icons@csoriano']"

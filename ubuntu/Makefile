@@ -39,6 +39,10 @@ config_python:
 
 config_vscode:
 	bash config/vscode/config_extension.sh $(HOME_DIR)
+
+
+config_desktop:
+	bash config/desktop/config_desktop.sh 
 	
 
 fonts:
@@ -47,6 +51,8 @@ fonts:
 
 extension:
 	bash extensions/install_extensions.sh $(HOME_DIR)
+	make restart_gshell
+	bash extensions/enable_extensions.sh
 
 
 background:
@@ -57,27 +63,37 @@ install_nodejs12:
 	sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 	curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 	sudo apt install nodejs -y
+	
+
+restart_gshell:
+	xdotool key "Alt+F2+r"
+	sleep 1
+	xdotool key "Return"
+	sleep 5	
 
 
-packages: apt_remove 		  \
-		  update_system 	  \
-		  apt_install 		  \
-		  install_nodejs12
-
+packages: 
+	make apt_remove
+	# make update_system
+	make apt_install
+	make install_nodejs12
+	
 	sudo npm install -g neovim
 
 
-admin_tasks: packages 		  \
-			 config_terminal  \
-			 install_bamboo   \
-			 fonts
+admin_tasks:
+	make packages
+	make config_terminal
+	make install_bamboo
+	make fonts
 
 
-user_tasks:	config_git 		  \
-			config_python 	  \
-			config_neovim 	  \
-			config_vscode 	  \
-			background
+user_tasks:	
+	make config_git
+	make config_python
+	make config_neovim
+	make config_vscode
+	make background
 			
 	# sudo sysctl net.ipv4.tcp_ecn=0
 	timedatectl set-local-rtc 1 --adjust-system-clock
@@ -86,7 +102,9 @@ user_tasks:	config_git 		  \
 
 
 ubuntu:
-	sudo apt install deepin-icon-theme htop -y
+	sudo apt install deepin-icon-theme htop xdotool -y
 	make config_gsettings
 	sudo make admin_tasks
 	make user_tasks
+	make restart_gshell
+	make config_desktop

@@ -3,6 +3,7 @@
 ./install_packages/deb/teams.deb
 ./install_packages/deb/teamviewer.deb
 build-essential
+gettext
 libx11-dev
 libgtop2-dev
 libxtst-dev
@@ -45,3 +46,4 @@ chrome-gnome-shell
 steam
 rust-all
 rust-src
+xdotool

@@ -16,6 +16,7 @@ done
 # make --directory github/dash-to-dock/ clean
 # make --directory github/dash-to-dock/
 # make --directory github/dash-to-dock/ install
+# make --directory github/dash-to-dock/ clean
 # @=============================================================================@
 # @https://github.com/micheleg/dash-to-dock.git                                 @
 # @File: schemas                                                                @
@@ -35,6 +36,7 @@ done
 # make --directory github/cpupower/ clean
 # make --directory github/cpupower/ build
 # make --directory github/cpupower/ install PREFIX="${HOME_DIR}/.local"
+# make --directory github/cpupower/ clean
 # @=============================================================================@
 # @https://github.com/martin31821/cpupower.git github/cpupower                  @
 # @File: schemas                                                                @
@@ -44,12 +46,14 @@ done
 
 
 # *system-monitor
-# make --directory github/gnome-shell-system-monitor-applet build
 # make --directory github/gnome-shell-system-monitor-applet clean
+# make --directory github/gnome-shell-system-monitor-applet build
 # make --directory github/gnome-shell-system-monitor-applet install
+# make --directory github/gnome-shell-system-monitor-applet clean
 # @=============================================================================@
 # @https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet.git       @
 # @File: schemas                                                                @
+# @dock-position: BOTTOM                                                        @
 # @icon-display: false                                                          @
 # @memory-refresh-time: 500                                                     @
 # @memory-style: digit                                                          @

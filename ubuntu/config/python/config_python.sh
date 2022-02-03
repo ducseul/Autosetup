@@ -1,5 +1,5 @@
-pip install tensorflow
-pip install sklearn
-pip install matplotlib
-pip install pandas
-pip install opencv-python
+PACKAGES=$(cat config/python/packages.txt)
+
+for package in ${PACKAGES[*]}; do
+	pip install ${package}
+done
