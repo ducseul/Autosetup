@@ -1,0 +1,16 @@
+numpy
+pillow
+keras
+pandas
+keras
+scipy
+opencv
+matplotlib
+pyinstaller
+requests
+SQLAlchemy
+beautifulsoup4
+selenium
+webdriver-manager
+PyQt5
+Pywin32
